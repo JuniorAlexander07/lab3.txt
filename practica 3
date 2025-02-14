@@ -1,0 +1,12 @@
+comandos:
+
+Ping 192.168.100.115
+Systemctl status sshd
+ssh alexander@192.168.100.115
+ssh-keygen
+ls- la
+cd .ssh
+nano authorized_keys
+chmod 700 .ssh
+chmod 600 .ssh/authorized_keys
+systemctl restart sshd

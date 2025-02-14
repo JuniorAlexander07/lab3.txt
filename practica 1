@@ -1,0 +1,10 @@
+comandos:
+
+Nano /etc/default/grub
+Update-grub
+Reboot
+Init=/bin/bash
+whoami
+mount -o remount rw /
+Passwd (nombre usuario)
+Reboot -f

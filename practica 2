@@ -1,0 +1,23 @@
+comandos:
+
+Nano backup.sh
+#!/bin/bash
+Fecha=$(date +”%d-%m-%Y-%H:%M”)
+BACKUP=”/home/usuario/backup_$fecha.tar.gz”
+tar -czf $BACKUP /home/usuario
+Echo “Backup creado en: $BACKUP”
+Ls -l
+Chmod +x backup.sh
+
+Nano copia_ifconfig.sh
+#!/bin/bash
+Echo “ingrese el nombre para la copia
+Read nombre
+Ruta=”/home/usuario $nombre.txt”
+Ifconfig > $nombre.txt
+Echo “Se ha guardado una copia ifconfig en: $ruta”
+Chmod +x copia_ifconfig.sh
+./copia_ifconfig.sh
+nombre archivo utilizado: Copia_actual 
+ifconfig
+Nano copia_actual.txt

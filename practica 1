@@ -1,10 +1,35 @@
 comandos:
 
+entramos al archivo de configuracion de grub
 Nano /etc/default/grub
+
+grub timw out lo cambiamos de 5 a 20 son los segundos que te da antes de que la maquina arranque el sistema operativo
+guardamos y salimos
+
+para guardar la configuracion que acabamos de hacer, ejecutamos:
 Update-grub
+
 Reboot
-Init=/bin/bash
-whoami
+
+en el menu de grub le damos a advanced options
+entramos con enter
+y luego en el de arriba, la primera opcion presionamos e
+
+en la linea que dice linux al final que dice ro quiet splash, delante de esa linea ponemos:
+init=/bin/bash         esto nos va a hacer entrar a la shell
+
+para ejecutar
+control+X
+
+whoami     nos debe decir que somos el usuario root
+
+cambiar el sistema de archivo de raiz a lectura y escritura, para que nos permita hacer modificaciones:
 mount -o remount rw /
-Passwd (nombre usuario)
+
+Passwd (nombre usuario)            nombre de usuario a quien le queremos cambiar la contraseña.
+
+agregamos y confirmamos la contraseña
+
 Reboot -f
+
+cuando la maquina inicie agrega las nuevas credenciales (nombre de usuario y passwd nueva)

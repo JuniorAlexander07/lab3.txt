@@ -1,12 +1,61 @@
-comandos:
+verifica si tu maquina linux esta en modo bridge para que le de una direccion ip dentro de nuestro rango de red para que se alcancen via ping
 
+instalar servicio shh
+
+sudo apt update
+sudo apt install openssh-server
+
+habilitar servicio ssh
+sudo systemctl start ssh
+sudo systemctl status ssh
+
+hacerle ping a la maquina que nos queremos conectar para ver si la alcanzamos desde el cmd
 Ping 192.168.100.115
-Systemctl status sshd
+
+ahora vamos a conectarnos a la maquina linux desde el cmd con:
 ssh alexander@192.168.100.115
+te pedira la contraseña de la maquina virtual
+salimos de la sesion ssh
+
+ahora vamos a crear un par de llaves en el cmd
 ssh-keygen
+
+importante nos dara la ruta que vamos a utilizar para encontrar la llave, copiala
+
+luego le damos enter a todo 
+
+la ruta que copiamos la vamos a pegar en el explorador de archivos de nuestro windows en donde dice buscar en la lupita que esta arriba en la izquierda.
+la llave que nos interesa es la que dice pub
+
+ahora vamos a entrar al cmd y a logiarnos con ssh
+ssh alexander@192.168.100.115
+
+verifica si la carpeta .ssh esta presente con:
 ls- la
+
+vamos a entrar al directorio
 cd .ssh
-nano authorized_keys
+
+dentro vamos a darle un ls -la
+para validar que el archivo authorized keys esta presente, sino creala, si esta creada editalo:
+
+sudo nano authorized_keys
+
+dentro vamos a colocar la llave publica, o sea pegarla, ve a windows y busca la llave publica abrela con notas y copia el contenido y pegala dentro el archivo de configuracion.
+
+guardar y salir
+
+ya deberia de entrar con ssh sin pedir contraseña por la llave publica, intenta logiarte
+ssh alexander@192.168.100.115
+
+si pide contraseña, haz lo siguiente, otorgale permisos en caso de que no funcione la llave (paso que puede ser opcional)
 chmod 700 .ssh
 chmod 600 .ssh/authorized_keys
-systemctl restart sshd
+
+reiniciamos el servicio ssh:
+systemctl restart ssh
+
+vuelve a conectarte por ssh:
+ssh alexander@192.168.100.115
+
+

@@ -1,23 +1,76 @@
 comandos:
 
+vamsos a crear un escript con:
 Nano backup.sh
-#!/bin/bash
-Fecha=$(date +”%d-%m-%Y-%H:%M”)
-BACKUP=”/home/usuario/backup_$fecha.tar.gz”
-tar -czf $BACKUP /home/usuario
-Echo “Backup creado en: $BACKUP”
+
+dentro vamos a pegar lo siguiente:
+#!/bin/bash                                                      llamamos al interprete
+
+Fecha=$(date +”%d-%m-%Y-%H:%M”)                                   fecha y hora actual
+
+BACKUP=”/home/usuario/backup_$fecha.tar.gz”                        crea un archivo backup en el directorio 
+
+tar -czf $BACKUP /home/usuario                                     comprimido
+
+Echo “Backup creado en: $BACKUP”                                   mensaje para el usuario
+
+guardar y salir 
+
+para verificar si se creo
 Ls -l
+
+permisos de ejecucion 
 Chmod +x backup.sh
 
-Nano copia_ifconfig.sh
+ejectuamos con:
+./backup.sh
+
+vamos a registrar si se creo bien con un
+ls
+deberia aparecer en rojo
+
+
+
+segunda parte de la practica: una copia de ifconfig
+
+creamos un archivo con:
+nano copia_ifconfig.sh
+
+pegamos lo siguiente
 #!/bin/bash
-Echo “ingrese el nombre para la copia
+
+Echo “ingrese el nombre para la copia:"
+
 Read nombre
-Ruta=”/home/usuario $nombre.txt”
-Ifconfig > $nombre.txt
-Echo “Se ha guardado una copia ifconfig en: $ruta”
-Chmod +x copia_ifconfig.sh
+
+Ruta=”/home/usuario $nombre.txt”                ruta donde se creara nuestra copia
+
+Ifconfig > $nombre.txt                          ifconfig le pasara el resultado a la copia
+
+Echo “Se ha guardado una copia ifconfig en: $ruta”               mensaje para el usuario indicando donde se guardo
+
+guardar y salir
+
+para verificar que se creo
+ls -l
+
+le damos permisos de ejecucion:
+chmod +x copia_ifconfig.sh
+
+ejecutamos el script:
 ./copia_ifconfig.sh
-nombre archivo utilizado: Copia_actual 
+
+ingrese el nombre para la copia: copia_actual       (puede ser cual sea)
+
+para verificar 
+ls -l
+
+entramos al archivo para ver si hizo la copia de nuestro ifconfig:
+nano copia_actual.txt
+
+validar que la informacion sea la misma que proporciona el comando:
 ifconfig
-Nano copia_actual.txt
+
+valida que las ip sean iguales, mascaras y broadcast e interfaces de red.
+
+fin.

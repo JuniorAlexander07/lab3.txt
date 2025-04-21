@@ -59,3 +59,15 @@ vuelve a conectarte por ssh:
 ssh alexander@192.168.100.115
 
 
+en caso de querer conectarte a otra maquina virtual por ssh con llaves:
+cat .ssh/id_rsa.pub
+copia el contenido
+
+vamos a la segunda maquina virtual
+sudo nano .ssh/authorized_keys
+pegamos la llave publica aqui
+
+guardamos y salimos
+
+ahora intenta hacer la conexion ssh, no deberia pedir contraseña
+

@@ -72,6 +72,7 @@ guardamos y salimos
 ahora intenta hacer la conexion ssh, no deberia pedir contraseña
 
 
+
 scrip para el examen:
 
 en caso de necesitar cambiar el puerto al ssh
@@ -92,6 +93,9 @@ sudo ufw allow 2222/tcp
 bloqueamos el que ya no usaremos que es el 22:
 sudo ufw deny 22/tcp
 
+
+y esto es en caso de que quieras compartir la llave publica con alguna otra maquina
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.100
 
 
 

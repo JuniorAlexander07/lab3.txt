@@ -71,3 +71,27 @@ guardamos y salimos
 
 ahora intenta hacer la conexion ssh, no deberia pedir contraseña
 
+
+scrip para el examen:
+
+en caso de necesitar cambiar el puerto al ssh
+editamos el siguiente archivo:
+sudo nano /etc/ssh/sshd_config
+
+donde dice #port22  vamos a descomentarlo y poner
+port2222
+
+guardamos y salimos
+
+reiniciamos el servicio:
+sudo systemctl restart sshd
+
+habilitamos el puerto:
+sudo ufw allow 2222/tcp
+
+bloqueamos el que ya no usaremos que es el 22:
+sudo ufw deny 22/tcp
+
+
+
+

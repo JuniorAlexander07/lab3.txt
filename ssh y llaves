@@ -94,8 +94,31 @@ bloqueamos el que ya no usaremos que es el 22:
 sudo ufw deny 22/tcp
 
 
+
+
+en caso de que falle la autenticacion con ssh prueba lo siguiente:
+sudo nano /etc/ssh/sshd_config
+
+Permitir autenticación por clave pública: Si estás usando claves SSH, asegúrate de que la opción PubkeyAuthentication esté habilitada:
+PubkeyAuthentication yes
+
+Permitir autenticación por contraseña: Si necesitas usar la autenticación con contraseña, asegúrate de que esté habilitada:
+PasswordAuthentication yes
+
+guardar y salir
+
+sudo systemctl restart ssh
+
+intenta de nuevo hacer conexion
+
+
+
+
 y esto es en caso de que quieras compartir la llave publica con alguna otra maquina
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.100
+
+
+
 
 
 
